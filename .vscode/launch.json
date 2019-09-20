@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ActivityController",
+            "request": "launch",
+            "mainClass": "com.butter.services.activity.ActivityController",
+            "projectName": "butter-activity-service"
+        }
+    ]
+}
