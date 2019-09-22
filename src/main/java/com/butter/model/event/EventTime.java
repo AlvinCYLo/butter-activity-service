@@ -1,20 +1,18 @@
-package com.butter.services.activity;
+package com.butter.model.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Getter 
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Timing {
+@NoArgsConstructor
+public class EventTime {
 
-    public Timing (){
-
-    }
-
-    @Getter @Setter
     private String timezone;
 
-    @Getter @Setter
     private String utc;
 
 }

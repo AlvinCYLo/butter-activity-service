@@ -1,46 +1,39 @@
-package com.butter.services.activity;
+package com.butter.model.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+@Getter 
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
 public class Event {
 
-    public Event (){
-
-    }
-
-    @Getter @Setter
     private Name name;
 
-    @Getter @Setter
     private String id;
 
-    @Getter @Setter
     private String url;
 
-    @Getter @Setter
-    private Timing start;
+    private EventTime start;
 
-    @Getter @Setter
-    private Timing end;
-
-    @Getter @Setter
+    private EventTime end;
+    
     private String status;
 
-    @Getter @Setter
     private Boolean is_free;
 
-    @Getter @Setter
     private String venue_id;
 
-    @Getter @Setter
     private String category_id;
 
-    @Getter @Setter
     private String subcategory_id;
 
+    private String format_id;
+    
     @Override
     public String toString() {
         return name.getText();

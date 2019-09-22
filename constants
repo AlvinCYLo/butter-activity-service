@@ -2,3 +2,6 @@ API key J3LRWAS226H7AOFNAR
 Client secret WVAZ6NENCMGY5O2JIBWN6GQPOEPS3NHYX7G5ZG54D6Q3MKSFFS
 Private token CNU2GMJSLLEHVKGII66O
 Public token ZFADQIXZ6RJBWZIBQMB7
+base url https://www.eventbriteapi.com/v3/events
+/search
+/{eventid}
