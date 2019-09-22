@@ -9,9 +9,16 @@ public interface EventService {
     /**
 	 * Finds events by given location
 	 *
-	 * @param accountName
+	 * @param location
 	 * @return list of available events
 	 */
     List<Event> findEvents(String location);
 
+    /**
+	 * Finds details of an event by given event Id
+	 *
+	 * @param eventId
+	 * @return event details
+	 */
+    Event findEventById(String eventId);
 }
