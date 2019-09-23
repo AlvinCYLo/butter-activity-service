@@ -1,5 +1,7 @@
 package com.butter.model.event;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,9 +13,9 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
-public class Name {
+public class EventBriteSearchResult {
 
-    @JsonProperty("text")
-    private String name;
+    @JsonProperty("events")
+    private List<Event> availableEvents;
 
 }

@@ -1,10 +1,11 @@
 package com.butter.model.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter 
 @Setter
@@ -12,30 +13,41 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Event {
 
+    @JsonProperty("name")
     private Name name;
 
+    @JsonProperty("id")
     private String id;
 
+    @JsonProperty("url")
     private String url;
 
-    private EventTime start;
+    @JsonProperty("start")
+    private EventTime startTime;
 
-    private EventTime end;
+    @JsonProperty("end")
+    private EventTime endTime;
     
+    @JsonProperty("status")
     private String status;
 
-    private Boolean is_free;
+    @JsonProperty("is_free")
+    private Boolean free;
 
-    private String venue_id;
+    @JsonProperty("venue_id")
+    private String venue;
 
-    private String category_id;
+    @JsonProperty("category_id")
+    private String category;
 
-    private String subcategory_id;
+    @JsonProperty("subcategory_id")
+    private String subcategory;
 
-    private String format_id;
+    @JsonProperty("format_id")
+    private String format;
     
     @Override
     public String toString() {
-        return name.getText();
+        return name.getName() + startTime.getUtc() + endTime.getUtc();
     }
 }
