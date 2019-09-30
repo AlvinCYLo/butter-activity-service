@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
-public class EventBriteSearchResult {
+public class EventBriteResult {
 
     @JsonProperty("events")
     private List<Event> availableEvents;
