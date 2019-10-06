@@ -1,4 +1,4 @@
-package com.butter.model.event;
+package com.butter.model.ticketmaster;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,12 +11,9 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
-public class EventTime {
+public class City {
 
-    @JsonProperty("timezone")
-    private String timezone;
-
-    @JsonProperty("utc")
-    private String utc;
-
+    @JsonProperty("name")
+    private String name;
+    
 }

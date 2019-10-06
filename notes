@@ -1,0 +1,25 @@
+API key J3LRWAS226H7AOFNAR
+Client secret WVAZ6NENCMGY5O2JIBWN6GQPOEPS3NHYX7G5ZG54D6Q3MKSFFS
+Private token CNU2GMJSLLEHVKGII66O
+Public token ZFADQIXZ6RJBWZIBQMB7
+base url https://www.eventbriteapi.com/v3/events
+/search
+/{eventid}
+
+foursquare
+Client Id
+4FEFMKRKXX5HJQBOMCMMTAW5UEUKRR5X551FVQIGHW41BFO5
+Client Secret
+FZ3SYSZ225CCIQNQXN1JDFXTZPE1XUCZ3HHHXHXIW5SWSJUY
+
+tomtom
+Consumer API Key
+api0NlYioezCVwtBkk9n1bldLmbgjWWw
+
+ticketmaster
+DXEoZW9TaG1mTemeRzKmxibm7UoxgmkB 
+/discovery/v2/suggest
+/discovery/v2/attractions
+/discovery/v2/attractions/{id}
+/discovery/v2/events
+/discovery/v2/events/{id}

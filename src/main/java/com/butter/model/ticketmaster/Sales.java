@@ -1,4 +1,4 @@
-package com.butter.model.event;
+package com.butter.model.ticketmaster;
 
 import java.util.List;
 
@@ -13,9 +13,12 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
-public class EventBriteResult {
+public class Sales {
 
-    @JsonProperty("events")
-    private List<Event> availableEvents;
+    @JsonProperty("public")
+    private SaleTime publicSales;
+
+    @JsonProperty("presales")
+    private List<SaleTime> preSales;
 
 }

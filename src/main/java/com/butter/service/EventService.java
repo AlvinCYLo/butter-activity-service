@@ -2,7 +2,7 @@ package com.butter.service;
 //eventbrite & ticketmaster
 
 import java.util.List;
-import com.butter.model.event.Event;
+import com.butter.model.eventbrite.EBEvent;
 
 public interface EventService {
 
@@ -12,7 +12,7 @@ public interface EventService {
 	 * @param location
 	 * @return list of available events
 	 */
-    List<Event> findEvents(String location);
+    List<EBEvent> findEvents(String location);
 
     /**
 	 * Finds details of an event by given event Id
@@ -20,5 +20,5 @@ public interface EventService {
 	 * @param eventId
 	 * @return event details
 	 */
-    Event findEventById(String eventId);
+    EBEvent findEventById(String eventId);
 }

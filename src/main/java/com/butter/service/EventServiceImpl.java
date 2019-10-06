@@ -3,8 +3,8 @@ package com.butter.service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import com.butter.model.event.Event;
-import com.butter.model.event.EventBriteResult;
+import com.butter.model.eventbrite.EBEvent;
+import com.butter.model.eventbrite.EventbriteResponse;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,45 +19,45 @@ public class EventServiceImpl implements EventService {
     private static final RestTemplate template = new RestTemplate();
 
     @Override
-    public List<Event> findEvents(String cityStateCountry) {
-        EventBriteResult allEvents = template.getForObject(
+    public List<EBEvent> findEvents(String cityStateCountry) {
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?location.address=%s&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             cityStateCountry,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     }
 
-    public List<Event> findEvents(Long latitude, Long longitude) {
-        EventBriteResult allEvents = template.getForObject(
+    public List<EBEvent> findEvents(Long latitude, Long longitude) {
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?location.latitude=%d&location.longitude=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             latitude,
             longitude,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     }
 
-    public List<Event> findEvents(String cityStateCountry, String category) {
+    public List<EBEvent> findEvents(String cityStateCountry, String category) {
         Integer categoryId = 0;
-        EventBriteResult allEvents = template.getForObject(
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?location.address=%s&location.within=%s&categories=%d&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             cityStateCountry,
             DISTANCE,
             categoryId,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     }
 
-    public List<Event> findEvents(Long latitude, Long longitude, String category) {
+    public List<EBEvent> findEvents(Long latitude, Long longitude, String category) {
         Integer categoryId = 0;
-        EventBriteResult allEvents = template.getForObject(
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?location.latitude=%d&location.longitude=%d&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             latitude,
@@ -65,33 +65,33 @@ public class EventServiceImpl implements EventService {
             categoryId,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     }
 
-    public List<Event> findEvents(Date startDate, Date endDate){
+    public List<EBEvent> findEvents(Date startDate, Date endDate){
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DDThh:mm:ss");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
 
-        EventBriteResult allEvents = template.getForObject(
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?start_date.range_start=%s&start_date.range_end=%s&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             start,
             end,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     };
 
-    public List<Event> findEvents(Date startDate, Date endDate, String category){
+    public List<EBEvent> findEvents(Date startDate, Date endDate, String category){
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DDThh:mm:ss");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
         Integer categoryId = 0;
 
-        EventBriteResult allEvents = template.getForObject(
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             start,
@@ -99,17 +99,17 @@ public class EventServiceImpl implements EventService {
             categoryId,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     };
 
-    public List<Event> findEvents(String cityStateCountry, Date startDate, Date endDate, String category){
+    public List<EBEvent> findEvents(String cityStateCountry, Date startDate, Date endDate, String category){
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DDThh:mm:ss");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
         Integer categoryId = 0;
 
-        EventBriteResult allEvents = template.getForObject(
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?location.address=%s&start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             cityStateCountry,
@@ -118,17 +118,17 @@ public class EventServiceImpl implements EventService {
             categoryId,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     };
 
-    public List<Event> findEvents(Long latitude, Long longitude, Date startDate, Date endDate, String category){
+    public List<EBEvent> findEvents(Long latitude, Long longitude, Date startDate, Date endDate, String category){
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DDThh:mm:ss");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
         Integer categoryId = 0;
 
-        EventBriteResult allEvents = template.getForObject(
+        EventbriteResponse allEvents = template.getForObject(
             String.format("%s/search?location.latitude=%d&location.longitude=%d&start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
             EVENTBRITE_BASE_URL,
             latitude,
@@ -138,17 +138,17 @@ public class EventServiceImpl implements EventService {
             categoryId,
             DISTANCE,
             PRIVATE_TOKEN),
-            EventBriteResult.class);
+            EventbriteResponse.class);
         return allEvents.getAvailableEvents();
     };
 
     @Override
-    public Event findEventById(String eventId) {
-        Event event = template.getForObject(
+    public EBEvent findEventById(String eventId) {
+        EBEvent event = template.getForObject(
             String.format("%s/%s/?token=%S", eventId, 
             EVENTBRITE_BASE_URL,
             PRIVATE_TOKEN), 
-        Event.class);
+            EBEvent.class);
         return event;
     }
     
