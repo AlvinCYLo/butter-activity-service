@@ -9,10 +9,10 @@
 
 	<artifactId>butter-activity-service</artifactId>
 	<groupId>org.springframework</groupId>
-	<version>0.0.1</version>
+	<version>0.1.0</version>
 
 	<properties>
-		<java.version>10</java.version>
+		<java.version>12</java.version>
 	</properties>
 	
 	<dependencyManagement>

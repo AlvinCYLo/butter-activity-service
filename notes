@@ -18,8 +18,3 @@ api0NlYioezCVwtBkk9n1bldLmbgjWWw
 
 ticketmaster
 DXEoZW9TaG1mTemeRzKmxibm7UoxgmkB 
-/discovery/v2/suggest
-/discovery/v2/attractions
-/discovery/v2/attractions/{id}
-/discovery/v2/events
-/discovery/v2/events/{id}
