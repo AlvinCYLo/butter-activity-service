@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class TMEventServiceImpl implements TMEventService {
 
-    private static final String TICKETMASTER_BASE_URL = "https://app.ticketmaster.com/discovery/v2/";
+    private static final String TICKETMASTER_BASE_URL = "https://app.ticketmaster.com/discovery/v2/events";
     private static final String API_KEY = "DXEoZW9TaG1mTemeRzKmxibm7UoxgmkB";
 
     private static final RestTemplate template = new RestTemplate();

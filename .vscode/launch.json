@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ButterActivityServiceApplication<butter-activity-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.butter.ButterActivityServiceApplication",
+            "projectName": "butter-activity-service",
+            "args": ""
+        }
+    ]
+}

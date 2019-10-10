@@ -8,10 +8,10 @@ com\butter\service\EBEventService.class
 com\butter\model\ticketmaster\EventTime.class
 com\butter\ButterActivityServiceApplication.class
 com\butter\model\eventbrite\EventTime.class
-com\butter\model\ticketmaster\TMAttractionResponse.class
 com\butter\model\ticketmaster\Classification.class
 com\butter\model\eventbrite\EBEvent.class
 com\butter\model\ticketmaster\SaleTime.class
+com\butter\model\ticketmaster\TMEventList.class
 com\butter\service\EBEventServiceImpl.class
 com\butter\model\eventbrite\EventbriteResponse.class
 com\butter\model\ticketmaster\Attraction.class
@@ -22,8 +22,8 @@ com\butter\service\TMEventServiceImpl.class
 com\butter\model\ticketmaster\City.class
 com\butter\model\ticketmaster\Venue.class
 com\butter\model\ticketmaster\BoxOfficeInfo.class
-com\butter\controller\EBEventController.class
 com\butter\model\ticketmaster\Address.class
 com\butter\service\TMEventService.class
+com\butter\controller\TMEventController.class
 com\butter\model\ticketmaster\State.class
 com\butter\model\ticketmaster\TMEvent.class

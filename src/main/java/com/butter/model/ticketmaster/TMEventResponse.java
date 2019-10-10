@@ -16,6 +16,10 @@ import lombok.Setter;
 public class TMEventResponse {
 
     @JsonProperty("_embedded")
-    private List<TMEvent> availableEvents;
+    private TMEventList eventList;
+
+    public List<TMEvent> getAvailableEvents(){
+        return eventList.getAvailableEvents();
+    }
 
 }
