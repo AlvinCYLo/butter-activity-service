@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: butter-activity-service
+  # cloud:
+  #   config:
+  #     uri: http://activity:3002
+      
+# server:
+#   port: 3002
