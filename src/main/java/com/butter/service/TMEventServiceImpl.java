@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class TMEventServiceImpl implements TMEventService {
 
-    private static final String TICKETMASTER_BASE_URL = "https://app.ticketmaster.com/discovery/v2/events";
+    private static final String TICKETMASTER_BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json?";
     private static final String API_KEY = "DXEoZW9TaG1mTemeRzKmxibm7UoxgmkB";
 
     private static final RestTemplate template = new RestTemplate();
@@ -20,7 +20,7 @@ public class TMEventServiceImpl implements TMEventService {
     @Override
     public List<TMEvent> findEvents(String city){
         TMEventResponse allEvents = template.getForObject(
-            String.format("%s.json?city=%s&apikey=%s",
+            String.format("%scity=%s&apikey=%s",
             TICKETMASTER_BASE_URL,
             city,
             API_KEY),
@@ -30,7 +30,7 @@ public class TMEventServiceImpl implements TMEventService {
 
     public List<TMEvent> findEvents(String city, String keyword){
         TMEventResponse allEvents = template.getForObject(
-            String.format("%s.json?city=%s&keyword=%s&apikey=%s",
+            String.format("%scity=%s&keyword=%s&apikey=%s",
             TICKETMASTER_BASE_URL,
             city,
             keyword,
@@ -45,7 +45,7 @@ public class TMEventServiceImpl implements TMEventService {
         String end = dateFormat.format(endDate);
 
         TMEventResponse allEvents = template.getForObject(
-            String.format("%s.json?city=%s&startDateTime=%s&endDateTime=%s&apikey=%s",
+            String.format("%scity=%s&startDateTime=%s&endDateTime=%s&apikey=%s",
             TICKETMASTER_BASE_URL,
             city,
             start,
@@ -61,7 +61,7 @@ public class TMEventServiceImpl implements TMEventService {
         String end = dateFormat.format(endDate);
 
         TMEventResponse allEvents = template.getForObject(
-            String.format("%s.json?city=%s&keyword=%s&startDateTime=%s&endDateTime=%s&apikey=%s",
+            String.format("%scity=%s&keyword=%s&startDateTime=%s&endDateTime=%s&apikey=%s",
             TICKETMASTER_BASE_URL,
             city,
             keyword,
@@ -107,7 +107,7 @@ public class TMEventServiceImpl implements TMEventService {
         String end = dateFormat.format(endDate);
 
         TMEventResponse allEvents = template.getForObject(
-            String.format("%s.json?city=%s&classificationName=%s&startDateTime=%s&endDateTime=%s&apikey=%s",
+            String.format("%scity=%s&classificationName=%s&startDateTime=%s&endDateTime=%s&apikey=%s",
             TICKETMASTER_BASE_URL,
             city,
             allClassifications,
@@ -140,7 +140,7 @@ public class TMEventServiceImpl implements TMEventService {
         String allClassifications = String.join(",", classificationNames);
 
         TMEventResponse allEvents = template.getForObject(
-            String.format("%s.json?city=%s&classificationName=%s&apikey=%s",
+            String.format("%scity=%s&classificationName=%s&apikey=%s",
             TICKETMASTER_BASE_URL,
             city,
             allClassifications,
