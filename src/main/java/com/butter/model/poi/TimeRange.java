@@ -1,9 +1,10 @@
+
 package com.butter.model.poi;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +14,16 @@ import lombok.Setter;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "startTime",
+    "endTime"
+})
 public class TimeRange {
 
     @JsonProperty("startTime")
-    private String startTime;
-
+    private StartTime startTime;
     @JsonProperty("endTime")
-    private String endTime;
+    private EndTime endTime;
+
 }
