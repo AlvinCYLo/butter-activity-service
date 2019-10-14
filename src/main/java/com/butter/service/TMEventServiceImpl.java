@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import com.butter.model.ticketmaster.TMEvent;
-import com.butter.model.ticketmaster.TMEventResponse;
+import com.butter.model.ticketmaster.TicketmasterResponse;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

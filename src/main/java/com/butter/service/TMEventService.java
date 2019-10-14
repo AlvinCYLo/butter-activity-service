@@ -1,7 +1,6 @@
 package com.butter.service;
 
 import java.util.List;
-import com.butter.model.ticketmaster.TMEvent;
 
 public interface TMEventService {
 
@@ -11,6 +10,6 @@ public interface TMEventService {
 	 * @param location
 	 * @return list of available events
 	 */
-	List<TMEvent> findEvents(String location);
+	List<> findEvents(String location);
 
 }

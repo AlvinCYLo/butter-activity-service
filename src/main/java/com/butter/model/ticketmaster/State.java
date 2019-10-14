@@ -1,22 +1,24 @@
+
 package com.butter.model.ticketmaster;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Getter 
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class State {
-
-    @JsonProperty("stateCode")
-    private String stateCode;
 
     @JsonProperty("name")
     private String name;
+    @JsonProperty("stateCode")
+    private String stateCode;
 
 }

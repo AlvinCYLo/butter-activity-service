@@ -1,0 +1,70 @@
+{
+    "events": [
+        {
+            "name": {
+                "text": "2020 Vancouver TAG Festival"
+            },
+            "url": "https://www.eventbrite.com.au/e/2020-vancouver-tag-festival-registration-55137242978?aff=ebapi",
+            "start": {
+                "timezone": "America/Vancouver",
+                "utc": "2020-02-24T17:00:00Z"
+            },
+            "end": {
+                "timezone": "America/Vancouver",
+                "utc": "2020-02-28T18:30:00Z"
+            },
+            "capacity": 100,
+            "status": "live",
+            "currency": "USD",
+            "is_free": true,
+            "resource_uri": "https://www.eventbriteapi.com/v3/events/55137242978/",
+            "venue": {
+                "address": {
+                    "address_1": "600 National Avenue",
+                    "address_2": null,
+                    "city": "Vancouver",
+                    "region": "BC",
+                    "postal_code": "V6A 2E5",
+                    "country": "CA",
+                    "latitude": "49.2749427",
+                    "longitude": "-123.0934532",
+                    "localized_address_display": "600 National Avenue, Vancouver, BC V6A 2E5"
+                },
+                "resource_uri": "https://www.eventbriteapi.com/v3/venues/28929094/",
+                "age_restriction": "AGE_RESTRICTION_ALL_AGES",
+                "name": "Trillium Park",
+                "latitude": "49.2749427",
+                "longitude": "-123.0934532"
+            },
+            "ticket_availability": {
+                "has_available_tickets": false,
+                "minimum_ticket_price": {
+                    "currency": "USD",
+                    "value": 0,
+                    "major_value": "0.00"
+                },
+                "maximum_ticket_price": {
+                    "currency": "USD",
+                    "value": 0,
+                    "major_value": "0.00"
+                },
+                "is_sold_out": true,
+                "start_sales_date": {
+                    "timezone": "America/Vancouver",
+                    "utc": "2018-11-26T08:00:00Z"
+                }
+            }
+        }
+    ],
+    "location": {
+        "latitude": "49.282729",
+        "augmented_location": {
+            "city": "Vancouver",
+            "region": "British Columbia",
+            "country": "Canada"
+        },
+        "within": "9.86965990624",
+        "longitude": "-123.120738",
+        "address": "vancouver"
+    }
+}

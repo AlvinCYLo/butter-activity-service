@@ -2,8 +2,6 @@ package com.butter.controller;
 
 import java.util.List;
 
-import com.butter.model.eventbrite.EBEvent;
-import com.butter.model.ticketmaster.TMEvent;
 import com.butter.service.EBEventService;
 import com.butter.service.TMEventService;
 

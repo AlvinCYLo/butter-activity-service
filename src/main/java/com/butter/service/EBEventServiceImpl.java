@@ -20,7 +20,7 @@ public class EBEventServiceImpl implements EBEventService {
 
     public List<EBEvent> findEvents(String cityStateCountry) {
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?location.address=%s&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?location.address=%s&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             cityStateCountry,
             DISTANCE,
@@ -31,7 +31,7 @@ public class EBEventServiceImpl implements EBEventService {
 
     public List<EBEvent> findEvents(Long latitude, Long longitude) {
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?location.latitude=%d&location.longitude=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?location.latitude=%d&location.longitude=%d&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             latitude,
             longitude,
@@ -44,7 +44,7 @@ public class EBEventServiceImpl implements EBEventService {
     public List<EBEvent> findEvents(String cityStateCountry, String category) {
         Integer categoryId = 0;
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?location.address=%s&location.within=%s&categories=%d&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?location.address=%s&location.within=%s&categories=%d&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             cityStateCountry,
             DISTANCE,
@@ -57,7 +57,7 @@ public class EBEventServiceImpl implements EBEventService {
     public List<EBEvent> findEvents(Long latitude, Long longitude, String category) {
         Integer categoryId = 0;
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?location.latitude=%d&location.longitude=%d&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?location.latitude=%d&location.longitude=%d&categories=%d&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             latitude,
             longitude,
@@ -74,7 +74,7 @@ public class EBEventServiceImpl implements EBEventService {
         String end = dateFormat.format(endDate);
 
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?start_date.range_start=%s&start_date.range_end=%s&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?start_date.range_start=%s&start_date.range_end=%s&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             start,
             end,
@@ -91,7 +91,7 @@ public class EBEventServiceImpl implements EBEventService {
         Integer categoryId = 0;
 
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             start,
             end,
@@ -109,7 +109,7 @@ public class EBEventServiceImpl implements EBEventService {
         Integer categoryId = 0;
 
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?location.address=%s&start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?location.address=%s&start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             cityStateCountry,
             start,
@@ -128,7 +128,7 @@ public class EBEventServiceImpl implements EBEventService {
         Integer categoryId = 0;
 
         EventbriteResponse allEvents = template.getForObject(
-            String.format("%s/search?location.latitude=%d&location.longitude=%d&start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue&token=%s", 
+            String.format("%s/search?location.latitude=%d&location.longitude=%d&start_date.range_start=%s&start_date.range_end=%s&categories=%d&location.within=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             EVENTBRITE_BASE_URL,
             latitude,
             longitude,
