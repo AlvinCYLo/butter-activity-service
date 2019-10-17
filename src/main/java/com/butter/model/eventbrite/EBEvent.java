@@ -13,7 +13,7 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Event {
+public class EBEvent {
 
     @JsonProperty("name")
     private Name name;
@@ -33,6 +33,8 @@ public class Event {
     private Boolean isFree;
     @JsonProperty("resource_uri")
     private String resourceUri;
+    @JsonProperty("category")
+    private Category category;
     @JsonProperty("venue")
     private Venue venue;
     @JsonProperty("ticket_availability")

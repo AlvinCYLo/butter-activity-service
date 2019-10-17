@@ -25,7 +25,7 @@ public class Attraction {
     @JsonProperty("url")
     private String url;
     @JsonProperty("classifications")
-    private List<Classification_> classifications = null;
+    private List<Classification_> classifications;
     @JsonProperty("test")
     private Boolean test;
     

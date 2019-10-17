@@ -19,6 +19,6 @@ import lombok.NoArgsConstructor;
 public class Embedded {
 
     @JsonProperty("events")
-    private List<Event> events;
+    private List<TMEvent> events;
     
 }

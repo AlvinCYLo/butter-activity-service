@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Event {
+public class TMEvent {
 
     @JsonProperty("name")
     private String name;
@@ -35,9 +35,9 @@ public class Event {
     @JsonProperty("dates")
     private Dates dates;
     @JsonProperty("classifications")
-    private List<Classification> classifications = null;
+    private List<Classification> classifications;
     @JsonProperty("priceRanges")
-    private List<PriceRange> priceRanges = null;
+    private List<PriceRange> priceRanges;
     @JsonProperty("ticketLimit")
     private TicketLimit ticketLimit;
     @JsonProperty("_embedded")

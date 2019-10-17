@@ -18,7 +18,7 @@ import lombok.Setter;
 public class EventbriteResponse {
 
     @JsonProperty("events")
-    private List<Event> events = null;
+    private List<EBEvent> events;
     @JsonProperty("location")
     private Location location;
 
