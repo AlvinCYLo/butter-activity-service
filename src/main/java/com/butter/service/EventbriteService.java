@@ -1,24 +1,23 @@
-// package com.butter.service;
-// //eventbrite & ticketmaster
+package com.butter.service;
 
-// import java.util.List;
-// import com.butter.model.eventbrite.EBEvent;
+import java.util.Optional;
 
-// public interface EBEventService {
+import com.butter.model.eventbrite.EventbriteResponse;
 
-//     /**
-// 	 * Finds events by given location
-// 	 *
-// 	 * @param location
-// 	 * @return list of available events
-// 	 */
-//     List<EBEvent> findEvents(String location);
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-//     /**
-// 	 * Finds details of an event by given event Id
-// 	 *
-// 	 * @param eventId
-// 	 * @return event details
-// 	 */
-//     EBEvent findEventById(String eventId);
-// }
+@FeignClient(value = "eventbrite-service", url = "https://www.eventbriteapi.com/v3/events/")
+public interface EventbriteService {
+
+    @RequestMapping(method = RequestMethod.GET, value = "/search?location.latitude={lat}&location.longitude={lon}&start_date.range_start={start}&start_date.range_end={end}&categories={categoryId}&sort_by=date&expand=venue,ticket_availability&token=CNU2GMJSLLEHVKGII66O")
+    EventbriteResponse discoverEBEvents(
+        @PathVariable("lat") String lat,
+        @PathVariable("lon") String lon,
+        @PathVariable("start") Optional<String> start,
+        @PathVariable("end") Optional<String> end,
+        @PathVariable("categoryId") Optional<String> categoryId
+        );
+}
