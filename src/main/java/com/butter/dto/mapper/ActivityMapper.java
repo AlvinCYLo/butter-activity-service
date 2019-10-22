@@ -5,8 +5,9 @@ import java.util.List;
 
 import com.butter.dto.model.ActivityDTO;
 import com.butter.dto.model.DetailsDTO;
-
 import com.butter.model.eventbrite.EBEvent;
+import com.butter.model.poi.Result;
+import com.butter.model.poi.TimeRange;
 import com.butter.model.ticketmaster.TMEvent;
 
 public class ActivityMapper {
@@ -26,12 +27,14 @@ public class ActivityMapper {
                         .setMinTicketPrice(ebEvent.getTicketAvailability().getMinimumTicketPrice().getValue())
                         .setMaxTicketPrice(ebEvent.getTicketAvailability().getMaximumTicketPrice().getValue())
                         .setSalesStart(ebEvent.getTicketAvailability().getStartSalesDate().getUtc())
+                        .setSalesEnd("")
                         .setCity(ebEvent.getVenue().getAddress().getCity())
                         .setStateCode(ebEvent.getVenue().getAddress().getRegion())
                         .setCountryCode(ebEvent.getVenue().getAddress().getCountry())
                         .setClassification(categories)
                         .setVenueName(ebEvent.getVenue().getName())
-                        .setCurrency(ebEvent.getTicketAvailability().getMinimumTicketPrice().getCurrency()));
+                        .setCurrency(ebEvent.getTicketAvailability().getMinimumTicketPrice().getCurrency())
+                        .setType("Event"));
     }
 
     public static ActivityDTO tmToActivityDTO(TMEvent tmEvent) {
@@ -57,6 +60,32 @@ public class ActivityMapper {
                         .setCountryCode(tmEvent.getEmbedded().getVenues().get(0).getCountry().getCountryCode())
                         .setClassification(categories)
                         .setVenueName(tmEvent.getEmbedded().getVenues().get(0).getName())
-                        .setCurrency(tmEvent.getPriceRanges().get(0).getCurrency()));
+                        .setCurrency(tmEvent.getPriceRanges().get(0).getCurrency())
+                        .setType("Event"));
+    }
+
+    public static ActivityDTO ttToActivityDTO(Result ttPOI){
+        TimeRange range = ttPOI.getPoi().getOpeningHours().getTimeRanges().get(0);
+        return new ActivityDTO()
+            .setName(ttPOI.getPoi().getName())
+            .setUrl(ttPOI.getPoi().getUrl())
+            .setAddress(ttPOI.getAddress().getFreeformAddress())
+            .setLatitude(String.valueOf(ttPOI.getPosition().getLat()))
+            .setLongitude(String.valueOf(ttPOI.getPosition().getLon()))
+            .setDetails(new DetailsDTO()
+                .setStart(String.format("%i:%i", range.getStartTime().getHour(), range.getStartTime().getMinute()))
+                .setEnd(String.format("%i:%i", range.getEndTime().getHour(), range.getEndTime().getMinute()))
+                .setMinTicketPrice(0)
+                .setMaxTicketPrice(0)
+                .setSalesStart("")
+                .setSalesEnd("")
+                .setCity(ttPOI.getAddress().getMunicipality())
+                .setStateCode(ttPOI.getAddress().getCountrySubdivision())
+                .setCountryCode(ttPOI.getAddress().getCountryCodeISO3())
+                .setClassification(ttPOI.getPoi().getCategories())
+                .setVenueName(ttPOI.getPoi().getName())
+                .setType("POI")
+            );
+
     }
 }

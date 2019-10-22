@@ -53,4 +53,7 @@ public class DetailsDTO {
     @JsonProperty("currency")
     private String currency;
 
+    @JsonProperty("type")
+    private String type;
+
 }

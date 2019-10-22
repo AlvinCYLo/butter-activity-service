@@ -1,8 +1,6 @@
 
 package com.butter.model.poi;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -24,8 +22,6 @@ public class Result {
     private Address address;
     @JsonProperty("position")
     private Position position;
-    @JsonProperty("mapcodes")
-    private List<Mapcode> mapcodes = null;
     @JsonProperty("viewport")
     private Viewport viewport;
     

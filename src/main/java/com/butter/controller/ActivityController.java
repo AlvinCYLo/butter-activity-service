@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityController {
 
     @RequestMapping(path = "/activities/{city}", method = RequestMethod.GET)
-    public List<TMEvent> getEventByCity(@PathVariable String city){
-        return TMEventService.findEvents(city);
+    public List<ActivityDTO> discoverActivities(@PathVariable String city){
+        
     }
 
 

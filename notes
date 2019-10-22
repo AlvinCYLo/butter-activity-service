@@ -6,11 +6,6 @@ base url https://www.eventbriteapi.com/v3/events
 /search
 /{eventid}
 
-foursquare
-Client Id
-4FEFMKRKXX5HJQBOMCMMTAW5UEUKRR5X551FVQIGHW41BFO5
-Client Secret
-FZ3SYSZ225CCIQNQXN1JDFXTZPE1XUCZ3HHHXHXIW5SWSJUY
 
 tomtom
 Consumer API Key
