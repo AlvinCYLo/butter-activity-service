@@ -45,7 +45,7 @@ public class ActivityServiceImpl implements ActivityService {
 
         EventbriteResponse ebActivities = ebService.discoverEBEvents(lat, lon, start, end, categoryId);
         TicketmasterResponse tmActivities = tmService.discoverTMEvents(lat, lon, category, start, end);
-        TomtomPOIResponse ttActivities = ttService.discoverTTPOIs(category, lat, lon, start);
+        TomtomPOIResponse ttActivities = ttService.discoverTTPOIs(category, lat, lon);
 
         for(EBEvent ebEvent : ebActivities.getEvents()){
             availableActivities.add(ActivityMapper.ebToActivityDTO(ebEvent));

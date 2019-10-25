@@ -17,9 +17,9 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
-    @RequestMapping(path = "/api/activities/?lat={lat}", method = RequestMethod.GET)
-    public List<ActivityDTO> discoverActivities(@PathVariable String lat, @PathVariable String lon){
-        return activityService.discoverActivities(lat, lon, "", "", "");
+    @RequestMapping(path = "/asdf", method = RequestMethod.GET)
+    public List<ActivityDTO> discoverActivities(){
+        return activityService.discoverActivities("49.246292", "123.116226", "", "", "");
     }
 
     @RequestMapping(path = "/api/activities/?lat={lat}&lon={lon}&category={category}", method = RequestMethod.GET)

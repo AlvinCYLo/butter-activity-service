@@ -33,6 +33,7 @@ com\butter\model\poi\Address.class
 com\butter\model\ticketmaster\TMEvent.class
 com\butter\model\eventbrite\StartSalesDate.class
 com\butter\model\poi\TopLeftPoint.class
+com\butter\service\EventbriteServiceImpl.class
 com\butter\model\eventbrite\End.class
 com\butter\model\poi\Viewport.class
 com\butter\model\ticketmaster\Location_.class
@@ -48,6 +49,8 @@ com\butter\model\eventbrite\Venue.class
 com\butter\model\ticketmaster\Presale.class
 com\butter\model\poi\Classification.class
 com\butter\model\eventbrite\category\ParentCategory.class
+com\butter\service\TomtomServiceImpl.class
+com\butter\service\TicketmasterServiceImpl.class
 com\butter\model\eventbrite\EBEvent.class
 com\butter\model\eventbrite\category\Category.class
 com\butter\model\eventbrite\TicketAvailability.class
