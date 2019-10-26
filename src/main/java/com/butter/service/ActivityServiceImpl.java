@@ -8,6 +8,7 @@ import java.util.Set;
 
 import com.butter.dto.mapper.ActivityMapper;
 import com.butter.dto.model.ActivityDTO;
+
 import com.butter.model.eventbrite.EBEvent;
 import com.butter.model.eventbrite.EventbriteResponse;
 import com.butter.model.eventbrite.category.Category;
@@ -16,6 +17,10 @@ import com.butter.model.poi.Result;
 import com.butter.model.poi.TomtomPOIResponse;
 import com.butter.model.ticketmaster.TMEvent;
 import com.butter.model.ticketmaster.TicketmasterResponse;
+
+import com.butter.service.EventbriteService;
+import com.butter.service.TomtomService;
+import com.butter.service.TicketmasterService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +41,8 @@ public class ActivityServiceImpl implements ActivityService {
     @Autowired
     private TomtomService ttService;
 
+    @Autowired
+    private ActivityMapper activityMapper;
 
     @Override
     public List<ActivityDTO> discoverActivities(String lat, String lon, String category, String start, String end) {
@@ -48,25 +55,23 @@ public class ActivityServiceImpl implements ActivityService {
         TomtomPOIResponse ttActivities = ttService.discoverTTPOIs(category, lat, lon);
 
         for(EBEvent ebEvent : ebActivities.getEvents()){
-            availableActivities.add(ActivityMapper.ebToActivityDTO(ebEvent));
+            availableActivities.add(activityMapper.ebToActivityDTO(ebEvent));
         }
 
         for(TMEvent tmEvent : tmActivities.getEmbedded().getEvents()){
-            availableActivities.add(ActivityMapper.tmToActivityDTO(tmEvent));
+            availableActivities.add(activityMapper.tmToActivityDTO(tmEvent));
         }
 
         for(Result ttPOI : ttActivities.getResults()){
-            availableActivities.add(ActivityMapper.ttToActivityDTO(ttPOI));
+                availableActivities.add(activityMapper.ttToActivityDTO(ttPOI));
         }
 
         log.info("Activities from Eventbrite, TicketMaster and Tomtom have been successfully retrieved");
         return availableActivities;
-
     }
 
     private String getCategoryId(String category) {
         Map<String, Category> ebCategories = new HashMap<String, Category>();
-
         EBCategoryResponse ebCategoryResponse = ebService.getEBCategories("");
         while (ebCategoryResponse.getPagination().getHas_more_items() && ebCategoryResponse.getCategories().size() > 0) {
             for (Category cat : ebCategoryResponse.getCategories()) {

@@ -13,6 +13,7 @@ public class TomtomServiceImpl implements TomtomService {
 
 	@Override
 	public TomtomPOIResponse discoverTTPOIs(String category, String lat, String lon) {
+        if(category.equals("")) category = "food";
 		TomtomPOIResponse ttPOIs = template.getForObject(
             String.format("%s%s.json?lat=%s&lon=%s&openingHours=nextSevenDays&language=en-US&limit=15&key=%s", 
             Constants.TOMTOM_BASE_URL,

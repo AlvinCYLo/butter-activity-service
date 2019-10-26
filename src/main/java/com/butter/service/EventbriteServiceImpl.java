@@ -4,9 +4,10 @@ import com.butter.constants.Constants;
 import com.butter.model.eventbrite.EventbriteResponse;
 import com.butter.model.eventbrite.category.EBCategoryResponse;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-
+@Service
 public class EventbriteServiceImpl implements EventbriteService {
 
     private static final RestTemplate template = new RestTemplate();

@@ -16,19 +16,19 @@ import lombok.experimental.Accessors;
 public class ActivityDTO {
 
     @JsonProperty("name")
-    private String name;
+    private String name = "";
 
     @JsonProperty("url")
-    private String url;
+    private String url = "";
 
     @JsonProperty("address")
-    private String address;
+    private String address = "";
 
     @JsonProperty("latitude")
-    private String latitude;
+    private String latitude = "";
 
     @JsonProperty("longitude")
-    private String longitude;
+    private String longitude = "";
 
     @JsonProperty("details")
     private DetailsDTO details;

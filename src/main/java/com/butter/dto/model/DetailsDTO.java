@@ -18,40 +18,40 @@ import lombok.experimental.Accessors;
 public class DetailsDTO {
 
     @JsonProperty("start")
-    private String start;
+    private String start = "";
 
     @JsonProperty("end")
-    private String end;
+    private String end = "";
 
     @JsonProperty("minTicketPrice")
-    private Integer minTicketPrice;
+    private Integer minTicketPrice = 0;
 
     @JsonProperty("maxTicketPrice")
-    private Integer maxTicketPrice;
+    private Integer maxTicketPrice = 0;
 
     @JsonProperty("salesStart")
-    private String salesStart;
+    private String salesStart = "";
 
     @JsonProperty("salesEnd")
-    private String salesEnd;
+    private String salesEnd = "";
 
     @JsonProperty("city")
-    private String city;
+    private String city = "";
 
     @JsonProperty("stateCode")
-    private String stateCode;
+    private String stateCode = "";
 
     @JsonProperty("countryCode")
-    private String countryCode;
+    private String countryCode = "";
     
     @JsonProperty("classification")
     private List<String> classification;
 
     @JsonProperty("venueName")
-    private String venueName;
+    private String venueName = "";
 
     @JsonProperty("currency")
-    private String currency;
+    private String currency = "";
 
     @JsonProperty("type")
     private String type;
