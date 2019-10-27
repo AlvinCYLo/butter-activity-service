@@ -1,5 +1,7 @@
 package com.butter.dto.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -30,7 +32,43 @@ public class ActivityDTO {
     @JsonProperty("longitude")
     private String longitude = "";
 
-    @JsonProperty("details")
-    private DetailsDTO details;
+    @JsonProperty("start")
+    private String start = "";
+
+    @JsonProperty("end")
+    private String end = "";
+
+    @JsonProperty("minTicketPrice")
+    private Integer minTicketPrice = 0;
+
+    @JsonProperty("maxTicketPrice")
+    private Integer maxTicketPrice = 0;
+
+    @JsonProperty("salesStart")
+    private String salesStart = "";
+
+    @JsonProperty("salesEnd")
+    private String salesEnd = "";
+
+    @JsonProperty("city")
+    private String city = "";
+
+    @JsonProperty("stateCode")
+    private String stateCode = "";
+
+    @JsonProperty("countryCode")
+    private String countryCode = "";
+    
+    @JsonProperty("classification")
+    private List<String> classification;
+
+    @JsonProperty("venueName")
+    private String venueName = "";
+
+    @JsonProperty("currency")
+    private String currency = "";
+
+    @JsonProperty("type")
+    private String type = "";
 
 }

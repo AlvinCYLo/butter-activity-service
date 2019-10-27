@@ -22,6 +22,7 @@ import com.butter.service.EventbriteService;
 import com.butter.service.TomtomService;
 import com.butter.service.TicketmasterService;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,16 +55,20 @@ public class ActivityServiceImpl implements ActivityService {
         TicketmasterResponse tmActivities = tmService.discoverTMEvents(lat, lon, category, start, end);
         TomtomPOIResponse ttActivities = ttService.discoverTTPOIs(category, lat, lon);
 
+        ModelMapper EBMapper = activityMapper.configureEBMapping();
+        ModelMapper TMMapper = activityMapper.configureTMMapping();
+        ModelMapper TTMapper = activityMapper.configureTTMapping();
+
         // for(EBEvent ebEvent : ebActivities.getEvents()){
         //     availableActivities.add(activityMapper.ebToActivityDTO(ebEvent));
         // }
 
         for(TMEvent tmEvent : tmActivities.getEmbedded().getEvents()){
-            availableActivities.add(activityMapper.tmToActivityDTO(tmEvent));
+            availableActivities.add(TMMapper.map(tmEvent, ActivityDTO.class));
         }
 
         for(Result ttPOI : ttActivities.getResults()){
-                availableActivities.add(activityMapper.ttToActivityDTO(ttPOI));
+                availableActivities.add(TTMapper.map(ttPOI, ActivityDTO.class));
         }
 
         log.info("Activities from Eventbrite, TicketMaster and Tomtom have been successfully retrieved");
