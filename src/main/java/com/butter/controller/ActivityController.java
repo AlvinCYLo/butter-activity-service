@@ -15,26 +15,31 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityController {
 
     @Autowired
-    private static ActivityService activityService;
+    private ActivityService activityService;
 
     @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
-    public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon){
-        return activityService.discoverActivities(lat, lon, "", "", "");
-    }
-
-    @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
-    public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon, @RequestParam (value = "category") String category){
-        return activityService.discoverActivities(lat, lon, category, "", "");
-    }
-
-    @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
-    public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon, @RequestParam (value = "start") String start, @RequestParam (value = "end") String end){
-        return activityService.discoverActivities(lat, lon, "", start, end);
-    }
-
-    @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
-    public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon, @RequestParam (value = "category") String category, @RequestParam (value = "start") String start, @RequestParam (value = "end") String end){
+    public List<ActivityDTO> discoverActivities(
+        @RequestParam (value = "lat") String lat, 
+        @RequestParam (value = "lon") String lon,
+        @RequestParam (value = "category", defaultValue = "") String category,
+        @RequestParam (value = "start", defaultValue = "") String start,
+        @RequestParam (value = "end", defaultValue = "") String end){
         return activityService.discoverActivities(lat, lon, category, start, end);
     }
+
+    // @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
+    // public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon, @RequestParam (value = "category") String category){
+    //     return activityService.discoverActivities(lat, lon, category, "", "");
+    // }
+
+    // @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
+    // public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon, @RequestParam (value = "start") String start, @RequestParam (value = "end") String end){
+    //     return activityService.discoverActivities(lat, lon, "", start, end);
+    // }
+
+    // @RequestMapping(path = "/api/activities/", method = RequestMethod.GET)
+    // public List<ActivityDTO> discoverActivities(@RequestParam (value = "lat") String lat, @RequestParam (value = "lon") String lon, @RequestParam (value = "category") String category, @RequestParam (value = "start") String start, @RequestParam (value = "end") String end){
+    //     return activityService.discoverActivities(lat, lon, category, start, end);
+    // }
 
 }

@@ -54,6 +54,6 @@ public class DetailsDTO {
     private String currency = "";
 
     @JsonProperty("type")
-    private String type;
+    private String type = "";
 
 }
