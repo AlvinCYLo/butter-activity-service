@@ -14,31 +14,30 @@ import org.springframework.stereotype.Component;
 @Component
 public class ActivityMapper {
 
-    // public ActivityDTO ebToActivityDTO(EBEvent ebEvent) {
-    //     List<String> categories = new ArrayList<String>();
-    //     categories.add(ebEvent.getCategory().getName());
+    public ActivityDTO ebToActivityDTO(EBEvent ebEvent) {
+        List<String> categories = new ArrayList<String>();
+        categories.add(ebEvent.getCategory().getName());
 
-    //     return new ActivityDTO()
-    //             .setName(ebEvent.getName().getText())
-    //             .setUrl(ebEvent.getUrl())
-    //             // .setAddress(ebEvent.getVenue().getAddress().getLocalizedAddressDisplay())
-    //             // .setLatitude(ebEvent.getVenue().getLatitude())
-    //             // .setLongitude(ebEvent.getVenue().getLongitude())
-    //             .setDetails(new DetailsDTO()
-    //                     // .setStart(ebEvent.getStart().getUtc())
-    //                     // .setEnd(ebEvent.getEnd().getUtc())
-    //                     // .setMinTicketPrice(ebEvent.getTicketAvailability().getMinimumTicketPrice().getValue())
-    //                     // .setMaxTicketPrice(ebEvent.getTicketAvailability().getMaximumTicketPrice().getValue())
-    //                     // .setSalesStart(ebEvent.getTicketAvailability().getStartSalesDate().getUtc())
-    //                     // .setSalesEnd("")
-    //                     // .setCity(ebEvent.getVenue().getAddress().getCity())
-    //                     // .setStateCode(ebEvent.getVenue().getAddress().getRegion())
-    //                     // .setCountryCode(ebEvent.getVenue().getAddress().getCountry())
-    //                     // .setClassification(categories)
-    //                     // .setVenueName(ebEvent.getVenue().getName())
-    //                     // .setCurrency(ebEvent.getTicketAvailability().getMinimumTicketPrice().getCurrency())
-    //                     .setType("Event"));
-    // }
+        return new ActivityDTO()
+                .setName(ebEvent.getName().getText())
+                .setUrl(ebEvent.getUrl())
+                .setAddress(ebEvent.getVenue().getAddress().getLocalizedAddressDisplay())
+                .setLatitude(ebEvent.getVenue().getLatitude())
+                .setLongitude(ebEvent.getVenue().getLongitude())
+                .setStart(ebEvent.getStart().getUtc())
+                .setEnd(ebEvent.getEnd().getUtc())
+                .setMinTicketPrice(ebEvent.getTicketAvailability().getMinimumTicketPrice().getValue())
+                .setMaxTicketPrice(ebEvent.getTicketAvailability().getMaximumTicketPrice().getValue())
+                .setSalesStart(ebEvent.getTicketAvailability().getStartSalesDate().getUtc())
+                .setSalesEnd("")
+                .setCity(ebEvent.getVenue().getAddress().getCity())
+                .setStateCode(ebEvent.getVenue().getAddress().getRegion())
+                .setCountryCode(ebEvent.getVenue().getAddress().getCountry())
+                .setClassification(categories)
+                .setVenueName(ebEvent.getVenue().getName())
+                .setCurrency(ebEvent.getTicketAvailability().getMinimumTicketPrice().getCurrency())
+                .setType("Event");
+    }
 
     public ActivityDTO tmToActivityDTO(TMEvent tmEvent) {
         List<String> categories = new ArrayList<String>();

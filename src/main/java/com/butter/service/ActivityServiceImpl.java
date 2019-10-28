@@ -48,9 +48,9 @@ public class ActivityServiceImpl implements ActivityService {
     public List<ActivityDTO> discoverActivities(String lat, String lon, String category, String start, String end) {
         List<ActivityDTO> availableActivities = new ArrayList<ActivityDTO>();
         
-        //String categoryId = getCategoryId(category);
+        String categoryId = getCategoryId(category);
 
-        //EventbriteResponse ebActivities = ebService.discoverEBEvents(lat, lon, start, end, categoryId);
+        EventbriteResponse ebActivities = ebService.discoverEBEvents(lat, lon, start, end, categoryId);
         TicketmasterResponse tmActivities = tmService.discoverTMEvents(lat, lon, category, start, end);
         TomtomPOIResponse ttActivities = ttService.discoverTTPOIs(category, lat, lon);
 
