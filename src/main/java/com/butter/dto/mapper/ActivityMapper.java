@@ -47,7 +47,7 @@ public class ActivityMapper {
         Integer minPrice = (tmEvent.getPriceRanges() != null) ? tmEvent.getPriceRanges().get(0).getMin().intValue() : 0;
         Integer maxPrice = (tmEvent.getPriceRanges() != null) ? tmEvent.getPriceRanges().get(0).getMax().intValue() : 0;
         String currency = (tmEvent.getPriceRanges() != null) ? tmEvent.getPriceRanges().get(0).getCurrency() : "CAD";
-        
+
         return new ActivityDTO()
                 .setName(tmEvent.getName())
                 .setUrl(tmEvent.getUrl())
@@ -76,21 +76,21 @@ public class ActivityMapper {
         String end = (range != null) ? String.format("%i:%i", range.getEndTime().getHour(), range.getEndTime().getMinute()) : "";
         return new ActivityDTO()
             .setName(ttPOI.getPoi().getName())
-            // .setUrl(url)
-            // .setAddress(ttPOI.getAddress().getFreeformAddress())
-            // .setLatitude(String.valueOf(ttPOI.getPosition().getLat()))
-            // .setLongitude(String.valueOf(ttPOI.getPosition().getLon()))
-            // .setStart(start)
-            // .setEnd(end)
-            // .setMinTicketPrice(0)
-            // .setMaxTicketPrice(0)
-            // .setSalesStart("")
-            // .setSalesEnd("")
-            // .setCity(ttPOI.getAddress().getMunicipality())
-            // .setStateCode(ttPOI.getAddress().getCountrySubdivision())
-            // .setCountryCode(ttPOI.getAddress().getCountryCodeISO3())
-            // .setClassification(ttPOI.getPoi().getCategories())
-            // .setVenueName(ttPOI.getPoi().getName())
+            .setUrl(url)
+            .setAddress(ttPOI.getAddress().getFreeformAddress())
+            .setLatitude(String.valueOf(ttPOI.getPosition().getLat()))
+            .setLongitude(String.valueOf(ttPOI.getPosition().getLon()))
+            .setStart(start)
+            .setEnd(end)
+            .setMinTicketPrice(0)
+            .setMaxTicketPrice(0)
+            .setSalesStart("")
+            .setSalesEnd("")
+            .setCity(ttPOI.getAddress().getMunicipality())
+            .setStateCode(ttPOI.getAddress().getCountrySubdivision())
+            .setCountryCode(ttPOI.getAddress().getCountryCodeISO3())
+            .setClassification(ttPOI.getPoi().getCategories())
+            .setVenueName(ttPOI.getPoi().getName())
             .setType("POI");
     }
 }
