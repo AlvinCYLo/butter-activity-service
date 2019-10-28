@@ -22,7 +22,5 @@ public class Result {
     private Address address;
     @JsonProperty("position")
     private Position position;
-    @JsonProperty("viewport")
-    private Viewport viewport;
     
 }

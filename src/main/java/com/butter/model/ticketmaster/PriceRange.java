@@ -3,26 +3,25 @@ package com.butter.model.ticketmaster;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter 
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class PriceRange {
 
     @JsonProperty("type")
-    private String type;
+    public String type;
     @JsonProperty("currency")
-    private String currency;
+    public String currency;
     @JsonProperty("min")
-    private Double min;
+    public Double min;
     @JsonProperty("max")
-    private Double max;
+    public Double max;
     
+
 }

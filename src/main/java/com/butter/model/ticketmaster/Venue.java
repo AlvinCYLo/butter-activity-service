@@ -3,44 +3,37 @@ package com.butter.model.ticketmaster;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter 
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class Venue {
 
     @JsonProperty("name")
-    private String name;
-    @JsonProperty("type")
-    private String type;
-    @JsonProperty("distance")
-    private Double distance;
-    @JsonProperty("units")
-    private String units;
+    public String name;
     @JsonProperty("test")
-    private Boolean test;
+    public Boolean test;
     @JsonProperty("url")
-    private String url;
+    public String url;
+    @JsonProperty("postalCode")
+    public String postalCode;
     @JsonProperty("timezone")
-    private String timezone;
-    @JsonProperty("currency")
-    private String currency;
+    public String timezone;
     @JsonProperty("city")
-    private City city;
+    public City city;
     @JsonProperty("state")
-    private State state;
+    public State state;
     @JsonProperty("country")
-    private Country country;
+    public Country country;
     @JsonProperty("address")
-    private Address address;
+    public Address address;
     @JsonProperty("location")
-    private Location_ location;
+    public Location location;
     
+
 }

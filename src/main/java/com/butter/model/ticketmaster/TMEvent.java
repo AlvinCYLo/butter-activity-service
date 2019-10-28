@@ -2,45 +2,33 @@
 package com.butter.model.ticketmaster;
 
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter 
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class TMEvent {
 
     @JsonProperty("name")
-    private String name;
-    @JsonProperty("type")
-    private String type;
-    @JsonProperty("distance")
-    private Integer distance;
-    @JsonProperty("units")
-    private String units;
-    @JsonProperty("location")
-    private Location location;
+    public String name = "";
     @JsonProperty("url")
-    private String url;
+    public String url = "";
     @JsonProperty("sales")
-    private Sales sales;
+    public Sales sales;
     @JsonProperty("dates")
-    private Dates dates;
+    public Dates dates;
     @JsonProperty("classifications")
-    private List<Classification> classifications;
+    public List<Classification> classifications;
     @JsonProperty("priceRanges")
-    private List<PriceRange> priceRanges;
-    @JsonProperty("ticketLimit")
-    private TicketLimit ticketLimit;
+    public List<PriceRange> priceRanges;
     @JsonProperty("_embedded")
-    private Embedded_ embedded;
+    public Embedded_ embedded;
     
+
 }
