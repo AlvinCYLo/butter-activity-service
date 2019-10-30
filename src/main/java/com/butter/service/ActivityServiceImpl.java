@@ -1,5 +1,6 @@
 package com.butter.service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import com.butter.model.ticketmaster.TicketmasterResponse;
 
 import com.butter.service.EventbriteService;
 import com.butter.service.TomtomService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.butter.service.TicketmasterService;
 
 import org.slf4j.Logger;
@@ -47,22 +49,22 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public List<ActivityDTO> discoverActivities(String lat, String lon, String category, String start, String end) {
         List<ActivityDTO> availableActivities = new ArrayList<ActivityDTO>();
-        
-        String categoryId = getCategoryId(category);
 
-        EventbriteResponse ebActivities = ebService.discoverEBEvents(lat, lon, start, end, categoryId);
+        //String categoryId = getCategoryId(category);
+
+        //EventbriteResponse ebActivities = ebService.discoverEBEvents(lat, lon, start, end, categoryId);
         TicketmasterResponse tmActivities = tmService.discoverTMEvents(lat, lon, category, start, end);
         TomtomPOIResponse ttActivities = ttService.discoverTTPOIs(category, lat, lon);
 
-        // for(EBEvent ebEvent : ebActivities.getEvents()){
+        // for (EBEvent ebEvent : ebActivities.getEvents()) {
         //     availableActivities.add(activityMapper.ebToActivityDTO(ebEvent));
         // }
 
-        for(TMEvent tmEvent : tmActivities.getEmbedded().getEvents()){
+        for (TMEvent tmEvent : tmActivities.getEmbedded().getEvents()) {
             availableActivities.add(activityMapper.tmToActivityDTO(tmEvent));
         }
 
-        for(Result ttPOI : ttActivities.getResults()){
+        for (Result ttPOI : ttActivities.getResults()) {
             availableActivities.add(activityMapper.ttToActivityDTO(ttPOI));
         }
 
@@ -71,22 +73,29 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     private String getCategoryId(String category) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String categoryId = "";
+        EBCategoryResponse allCategories;
         Map<String, Category> ebCategories = new HashMap<String, Category>();
-        EBCategoryResponse ebCategoryResponse = ebService.getEBCategories("");
-        while (ebCategoryResponse.getPagination().getHas_more_items() && ebCategoryResponse.getCategories().size() > 0) {
-            for (Category cat : ebCategoryResponse.getCategories()) {
+
+        try {
+            allCategories = objectMapper.readValue(new File("src/main/resources/eventbrite-subcategories.json"), EBCategoryResponse.class);
+
+            for(Category cat : allCategories.getCategories()){
                 ebCategories.put(cat.getName(), cat);
             }
-            ebCategoryResponse = ebService.getEBCategories(ebCategoryResponse.getPagination().getContinuation());
-        }
 
-        Set<String> categoryKeys = ebCategories.keySet();
-        for(String key : categoryKeys){
-            if(key.toLowerCase().equals(category.toLowerCase())){
-                return ebCategories.get(key).getParentCategory().getId();
+            Set<String> categoryKeys = ebCategories.keySet();
+            for(String key : categoryKeys){
+                if(key.toLowerCase().equals(category.toLowerCase())){
+                    return ebCategories.get(key).getParentCategory().getId();
+                }
             }
+            return categoryId;
+        } catch (Exception e){
+            log.error(e.getMessage());
         }
-        return "";
+        return categoryId;
     }
 
 }

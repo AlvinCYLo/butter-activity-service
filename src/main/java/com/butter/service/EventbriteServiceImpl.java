@@ -15,7 +15,7 @@ public class EventbriteServiceImpl implements EventbriteService {
     @Override
     public EventbriteResponse discoverEBEvents(String lat, String lon, String start, String end, String categoryId) {
         EventbriteResponse ebEvents = template.getForObject(
-            String.format("%s/events/search?location.latitude=%s&location.longitude=%s&start_date.range_start=%s&start_date.range_end=%s&categories=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
+            String.format("%s?location.latitude=%s&location.longitude=%s&start_date.range_start=%s&start_date.range_end=%s&categories=%s&sort_by=date&expand=venue,ticket_availability&token=%s", 
             Constants.EVENTBRITE_BASE_URL,
             lat, 
             lon,
@@ -26,18 +26,5 @@ public class EventbriteServiceImpl implements EventbriteService {
             EventbriteResponse.class);
 
         return ebEvents;
-    }
-
-    @Override
-    public EBCategoryResponse getEBCategories(String contToken) {
-        EBCategoryResponse ebCategories = template.getForObject(
-            String.format("%s/subcategories/?continuation=%s&token=%s",
-            Constants.EVENTBRITE_BASE_URL,
-            contToken,
-            Constants.EVENTBRITE_API_KEY), 
-            EBCategoryResponse.class);
-            
-        return ebCategories;
-    }
-    
+    }    
 }
